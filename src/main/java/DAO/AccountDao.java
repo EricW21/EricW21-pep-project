@@ -12,12 +12,12 @@ public class AccountDao {
     public Account newUser(Account account) {
         Connection connection = ConnectionUtil.getConnection();
         try {
-            //Write SQL logic here
+            
             
             String sql = "Insert into account (username,password) values (?,?)" ;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            //write preparedStatement's setString and setInt methods here.
+            
             preparedStatement.setString(1,account.getUsername());
             preparedStatement.setString(2,account.getPassword());
             
@@ -31,7 +31,7 @@ public class AccountDao {
     public Account processLogin(Account account) {
         Connection connection = ConnectionUtil.getConnection();
         try {
-            //Write SQL logic here
+            
             
             String sql = "Select * from account where username=? and password=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class AccountDao {
                 Account match = new Account(rs.getInt("account_id"),
                     rs.getString("username"),
                     rs.getString("password"));
-                
+
                 return match;
             }
         }catch(SQLException e){
