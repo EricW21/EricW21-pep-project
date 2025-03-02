@@ -21,6 +21,9 @@ public class MessageService {
         return this.MessageDao.getAllMessages();
     }
     public Message createMessage(Message Message) {
+        if (Message.message_text=="") {
+            return null;
+        }
         return this.MessageDao.createMessage(Message);
     }
     public Message retrieveMessage(int id) {
@@ -30,6 +33,7 @@ public class MessageService {
         return this.deleteMessage(id);
     }
     public Message updateMessageText(int id, String message_text) {
+        
         return this.updateMessageText(id, message_text);
     }
     public List<Message> retrieveMessagesByUser(int user_id){

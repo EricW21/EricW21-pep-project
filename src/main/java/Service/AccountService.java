@@ -18,9 +18,16 @@ public class AccountService {
         this.accountDao= account;
     }
     public Account newUser(Account account) {
+        if (account.password.length()<4) {
+            return null;
+        }
+        if (account.username.length()==0) {
+            return null;
+        }
         return this.accountDao.newUser(account);
     }
     public Account processLogin(Account account) {
+        
         return this.accountDao.processLogin(account);
     }
 
