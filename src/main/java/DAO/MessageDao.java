@@ -74,7 +74,7 @@ public class MessageDao {
 
           
            
-            preparedStatement.executeUpdate();
+           
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 Message message = new Message(rs.getInt("message_id"),
@@ -102,7 +102,7 @@ public class MessageDao {
 
           
            
-            preparedStatement.executeUpdate();
+           
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 Message message = new Message(rs.getInt("message_id"),
@@ -126,7 +126,7 @@ public class MessageDao {
 
     public Message updateMessageText(int id, String message_text) {
         Connection connection = ConnectionUtil.getConnection();
-        if (message_text.length()>255 || message_text.length()>0) {
+        if (message_text.length()>255 || message_text.length()<=0) {
             return null;
         }
         try {

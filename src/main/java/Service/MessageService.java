@@ -27,16 +27,16 @@ public class MessageService {
         return this.MessageDao.createMessage(Message);
     }
     public Message retrieveMessage(int id) {
-        return this.retrieveMessage(id);
+        return this.MessageDao.retrieveMessage(id);
     }
     public Message deleteMessage(int id) {
-        return this.deleteMessage(id);
+        return this.MessageDao.deleteMessage(id);
     }
     public Message updateMessageText(int id, String message_text) {
         
-        return this.updateMessageText(id, message_text);
+        return this.MessageDao.updateMessageText(id, message_text);
     }
     public List<Message> retrieveMessagesByUser(int user_id){
-        return this.retrieveMessagesByUser(user_id);
+        return this.MessageDao.retrieveMessagesByUser(user_id);
     }
 }
